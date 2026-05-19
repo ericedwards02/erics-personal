@@ -1,15 +1,7 @@
 ---
-import background from "../assets/background.svg";
 ---
 
 <div id="container" class="h-full">
-    <img
-        id="background"
-        class="fixed top-0 left-0 w-full h-full -z-1 blur-[100px]"
-        src={background.src}
-        alt=""
-        fetchpriority="high"
-    />
     <main class="h-full flex justify-center">
         <section id="hero" class="flex flex-col items-start justify-center p-4">
             <h1>making changes! come back later :)</h1>
@@ -41,12 +33,12 @@ import background from "../assets/background.svg";
         display: flex;
         align-items: center;
         padding: 10px 12px;
-        color: #111827;
+        color: oklch(60% 0.194 36);
         text-decoration: none;
         transition: color 0.2s;
     }
 
     #links a:hover {
-        color: rgb(78, 80, 86);
+        color: oklch(50% 0.16 36);
     }
 </style>

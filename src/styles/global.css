@@ -34,5 +34,6 @@
     body {
         font-family: "Erode", sans-serif;
         font-weight: 500;
+        background-color: oklch(89% 0.021 63);
     }
 }
