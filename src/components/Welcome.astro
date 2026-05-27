@@ -1,10 +1,18 @@
 ---
+import iconSvg from "../assets/merivia-icon.svg?raw";
 ---
 
 <div id="container" class="h-full">
     <main class="h-full flex justify-center">
         <section id="hero" class="flex flex-col items-start justify-center p-4">
-            <h1>making changes! come back later :)</h1>
+            <h1>eric edwards</h1>
+            <h1>
+                founding engineer at <a
+                    href="https://merivia.ai/"
+                    class="merivia-link"
+                    ><span class="merivia-icon" set:html={iconSvg} />Merivia</a
+                >
+            </h1>
             <section id="links">
                 <a id="github" href="https://github.com/ericedwards02">github</a
                 >
@@ -40,5 +48,31 @@
 
     #links a:hover {
         color: oklch(50% 0.16 36);
+    }
+
+    .merivia-link {
+        color: inherit;
+        text-decoration-line: underline;
+        text-decoration-color: oklch(65% 0.04 63);
+        text-decoration-thickness: 1.5px;
+        text-underline-offset: 4px;
+        transition: text-decoration-color 0.2s;
+    }
+
+    .merivia-link:hover {
+        text-decoration-color: oklch(40% 0.05 63);
+    }
+
+    .merivia-icon {
+        display: inline-block;
+        width: 1cap;
+        height: 1cap;
+        margin-right: 0.2em;
+    }
+
+    .merivia-icon :global(svg) {
+        display: block;
+        width: 100%;
+        height: 100%;
     }
 </style>
