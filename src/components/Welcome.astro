@@ -48,23 +48,39 @@ import iconSvg from "../assets/merivia-icon.svg?raw";
         padding: 10px 12px;
         color: oklch(60% 0.194 36);
         text-decoration: none;
-        transition: color 0.2s;
+        transition:
+            color 0.2s,
+            text-decoration-color 0.2s;
     }
 
     #links a:hover {
         color: oklch(50% 0.16 36);
     }
 
-    .merivia-link {
-        color: inherit;
+    .merivia-link:focus-visible,
+    #links a:focus-visible {
+        outline: none;
+    }
+
+    .merivia-link,
+    #links a:focus-visible {
         text-decoration-line: underline;
-        text-decoration-color: oklch(65% 0.04 63);
         text-decoration-thickness: 1.5px;
         text-underline-offset: 4px;
+    }
+
+    #links a:focus-visible {
+        text-decoration-color: currentColor;
+    }
+
+    .merivia-link {
+        color: inherit;
+        text-decoration-color: oklch(65% 0.04 63);
         transition: text-decoration-color 0.2s;
     }
 
-    .merivia-link:hover {
+    .merivia-link:hover,
+    .merivia-link:focus-visible {
         text-decoration-color: oklch(40% 0.05 63);
     }
 
