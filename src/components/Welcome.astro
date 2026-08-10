@@ -1,16 +1,22 @@
 ---
-import iconSvg from "../assets/merivia-icon.svg?raw";
+import crescentIconSvg from "../assets/crescentcares-icon.svg?raw";
+import meriviaIconSvg from "../assets/merivia-icon.svg?raw";
 ---
 
 <div id="container" class="h-full">
     <main class="h-full flex justify-center">
         <section id="hero" class="flex flex-col items-start justify-center p-4">
-            <h1>eric edwards</h1>
+          <h1 class="mb-6">ERIC EDWARDS</h1>
             <h1>
-                founding engineer at <a
-                    href="https://merivia.ai/"
+                founding engineer at <a href="https://www.crescentcares.com/"
                     class="merivia-link"
-                    ><span class="merivia-icon" set:html={iconSvg} />Merivia</a
+                    ><span class="company-icon crescent-icon" set:html={crescentIconSvg} />Crescent</a
+                >
+            </h1>
+            <h1>
+                prev. founding engineer at <a href="https://merivia.ai/"
+                    class="merivia-link"
+                    ><span class="company-icon merivia-icon" set:html={meriviaIconSvg} />Merivia</a
                 >
             </h1>
             <section id="links">
@@ -68,16 +74,27 @@ import iconSvg from "../assets/merivia-icon.svg?raw";
         text-decoration-color: oklch(40% 0.05 63);
     }
 
-    .merivia-icon {
+    .company-icon {
         display: inline-block;
         width: 1cap;
         height: 1cap;
         margin-right: 0.2em;
+        color: oklch(65% 0.04 63);
+        transition: color 0.2s;
     }
 
-    .merivia-icon :global(svg) {
+    .merivia-link:hover .company-icon {
+        color: oklch(40% 0.05 63);
+    }
+
+    .company-icon :global(svg) {
         display: block;
         width: 100%;
         height: 100%;
     }
+
+    .crescent-icon :global(path) {
+        fill: currentColor;
+    }
+
 </style>
