@@ -6,19 +6,21 @@ import meriviaIconSvg from "../assets/merivia-icon.svg?raw";
 <div id="container" class="h-full">
     <main class="h-full flex justify-center">
         <section id="hero" class="flex flex-col items-start justify-center p-4">
-          <h1 class="mb-6">ERIC EDWARDS</h1>
+            <h1 class="mb-6">ERIC EDWARDS</h1>
             <h1>
                 founding engineer at <a href="https://www.crescentcares.com/"
                     class="merivia-link"
                     ><span class="company-icon crescent-icon" set:html={crescentIconSvg} />Crescent</a
                 >
             </h1>
+            <p class="note">nonprofit fintech</p>
             <h1>
-                prev. founding engineer at <a href="https://merivia.ai/"
+                prev. founding eng. at <a href="https://merivia.ai/"
                     class="merivia-link"
                     ><span class="company-icon merivia-icon" set:html={meriviaIconSvg} />Merivia</a
                 >
             </h1>
+            <p class="note mb-2">data infra for impact</p>
             <section id="links">
                 <a id="github" href="https://github.com/ericedwards02">github</a
                 >
@@ -39,13 +41,17 @@ import meriviaIconSvg from "../assets/merivia-icon.svg?raw";
 
 <style>
     h1 {
-        font-size: 22px;
         margin-top: 0.25em;
+    }
+
+    .note {
+        color: oklch(55% 0.03 63);
     }
 
     #links {
         display: flex;
         gap: 16px;
+        margin-inline-start: -12px;
     }
 
     #links a {
@@ -54,7 +60,7 @@ import meriviaIconSvg from "../assets/merivia-icon.svg?raw";
         padding: 10px 12px;
         color: oklch(60% 0.194 36);
         text-decoration: none;
-        transition: color 0.2s;
+        transition: color 150ms;
     }
 
     #links a:hover {
@@ -63,11 +69,12 @@ import meriviaIconSvg from "../assets/merivia-icon.svg?raw";
 
     .merivia-link {
         color: inherit;
+        white-space: nowrap;
         text-decoration-line: underline;
         text-decoration-color: oklch(65% 0.04 63);
         text-decoration-thickness: 1.5px;
         text-underline-offset: 4px;
-        transition: text-decoration-color 0.2s;
+        transition: text-decoration-color 150ms;
     }
 
     .merivia-link:hover {
@@ -80,7 +87,7 @@ import meriviaIconSvg from "../assets/merivia-icon.svg?raw";
         height: 1cap;
         margin-right: 0.2em;
         color: oklch(65% 0.04 63);
-        transition: color 0.2s;
+        transition: color 150ms;
     }
 
     .merivia-link:hover .company-icon {
