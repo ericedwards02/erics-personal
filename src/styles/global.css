@@ -27,5 +27,6 @@
         font-size: 18px;
         font-weight: 500;
         background-color: oklch(94% 0.018 63);
+        cursor: default;
     }
 }

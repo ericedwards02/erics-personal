@@ -6,7 +6,23 @@ import meriviaIconSvg from "../assets/merivia-icon.svg?raw";
 <div id="container" class="h-full">
     <main class="h-full flex justify-center">
         <section id="hero" class="flex flex-col items-start justify-center p-4">
-            <h1 class="mb-6">ERIC EDWARDS</h1>
+            <header class="mb-6 flex w-full flex-wrap items-baseline justify-between gap-x-6">
+                <h1 id="name" aria-label="ERIC EDWARDS">
+                    {
+                        [..."ERIC EDWARDS"].map((char) =>
+                            char === " " ? (
+                                " "
+                            ) : (
+                                <span class="tick" aria-hidden="true">
+                                    <span class="glyph">{char}</span>
+                                    <span class="glyph">{char}</span>
+                                </span>
+                            ),
+                        )
+                    }
+                </h1>
+                <a class="note email" href="mailto:hi@ericedwards.dev">hi@ericedwards.dev</a>
+            </header>
             <h1>
                 founding engineer at <a href="https://www.crescentcares.com/"
                     class="merivia-link"
@@ -39,6 +55,40 @@ import meriviaIconSvg from "../assets/merivia-icon.svg?raw";
     </main>
 </div>
 
+<script>
+    import { animate } from "motion";
+
+    const transition = { type: "spring", duration: 0.35, bounce: 0 } as const;
+    const canHover = matchMedia("(hover: hover) and (pointer: fine)");
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
+    for (const tick of document.querySelectorAll<HTMLElement>("#name .tick")) {
+        let [visible, hidden] = tick.querySelectorAll<HTMLElement>(".glyph");
+        let rolling = false;
+
+        tick.addEventListener("pointerenter", async () => {
+            if (rolling || !canHover.matches || reducedMotion.matches) return;
+            rolling = true;
+
+            await Promise.all([
+                animate(
+                    visible,
+                    { transform: ["translateY(0%)", "translateY(70%)"], opacity: [1, 0], filter: ["blur(0px)", "blur(4px)"] },
+                    transition,
+                ),
+                animate(
+                    hidden,
+                    { transform: ["translateY(-70%)", "translateY(0%)"], opacity: [0, 1], filter: ["blur(4px)", "blur(0px)"] },
+                    transition,
+                ),
+            ]);
+
+            [visible, hidden] = [hidden, visible];
+            rolling = false;
+        });
+    }
+</script>
+
 <style>
     h1 {
         margin-top: 0.25em;
@@ -46,6 +96,26 @@ import meriviaIconSvg from "../assets/merivia-icon.svg?raw";
 
     .note {
         color: oklch(55% 0.03 63);
+    }
+
+    .tick {
+        position: relative;
+        display: inline-block;
+    }
+
+    .tick .glyph:last-child {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+    }
+
+    .email {
+        text-decoration: none;
+        transition: color 150ms;
+    }
+
+    .email:hover {
+        color: oklch(40% 0.05 63);
     }
 
     #links {
