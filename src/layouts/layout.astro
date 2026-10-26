@@ -1,5 +1,9 @@
 ---
 import "../styles/global.css";
+
+const title = "eric's personal";
+const image = new URL("/og.png", Astro.site);
+const video = new URL("/og.mp4", Astro.site);
 ---
 
 <!doctype html>
@@ -9,7 +13,19 @@ import "../styles/global.css";
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <title>eric's personal</title>
+        <title>{title}</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:url" content={Astro.site} />
+        <meta property="og:image" content={image} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:video" content={video} />
+        <meta property="og:video:secure_url" content={video} />
+        <meta property="og:video:type" content="video/mp4" />
+        <meta property="og:video:width" content="1200" />
+        <meta property="og:video:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
     </head>
     <body>
         <slot />
